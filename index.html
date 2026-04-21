@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday, Preachi 🎀</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --rose: #e8728a;
+      --blush: #f5c6d0;
+      --cream: #fff6f8;
+      --gold: #c9a96e;
+      --dark: #3a2a2e;
+      --soft: #f9eef1;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,246,248,0.92);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--blush);
+    }
+    nav button {
+      background: none;
+      border: 1.5px solid transparent;
+      padding: 7px 18px;
+      border-radius: 30px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      color: var(--dark);
+      transition: all 0.3s;
+    }
+    nav button:hover, nav button.active {
+      border-color: var(--rose);
+      background: var(--rose);
+      color: white;
+    }
+
+    /* ── PAGES ── */
+    .page { display: none; min-height: 100vh; padding-top: 70px; }
+    .page.active { display: block; }
+
+    /* ═══════════════════════════════
+       PAGE 1 — PASSWORD
+    ═══════════════════════════════ */
+    #page-lock {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fce4ec 0%, #fdf6f9 50%, #fce4ec 100%);
+      padding-top: 0 !important;
+    }
+    .lock-box {
+      text-align: center;
+      padding: 50px 40px;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(232,114,138,0.15);
+      max-width: 380px;
+      width: 90%;
+      animation: fadeUp 0.8s ease;
+    }
+    .lock-emoji { font-size: 3rem; margin-bottom: 16px; }
+    .lock-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--rose);
+      margin-bottom: 8px;
+    }
+    .lock-box p { color: #999; font-size: 0.9rem; margin-bottom: 24px; }
+    .lock-box input {
+      width: 100%;
+      padding: 14px 20px;
+      border: 2px solid var(--blush);
+      border-radius: 50px;
+      font-size: 1rem;
+      text-align: center;
+      outline: none;
+      transition: border 0.3s;
+      font-family: 'Lato', sans-serif;
+      letter-spacing: 0.1em;
+    }
+    .lock-box input:focus { border-color: var(--rose); }
+    .lock-box button {
+      margin-top: 16px;
+      width: 100%;
+      padding: 14px;
+      background: var(--rose);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .lock-box button:hover { background: #d05470; transform: translateY(-2px); }
+    .lock-error { color: var(--rose); font-size: 0.85rem; margin-top: 12px; display: none; }
+
+    /* ═══════════════════════════════
+       PAGE 2 — MESSAGE
+    ═══════════════════════════════ */
+    #page-message {
+      background: linear-gradient(160deg, #fff0f5 0%, #fff6f8 60%, #fde8ee 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hearts-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .heart-particle {
+      position: absolute;
+      font-size: 1.2rem;
+      animation: floatUp linear infinite;
+      opacity: 0;
+    }
+    @keyframes floatUp {
+      0%   { opacity: 0; transform: translateY(0) scale(0.5); }
+      10%  { opacity: 0.6; }
+      90%  { opacity: 0.3; }
+      100% { opacity: 0; transform: translateY(-100vh) scale(1.2); }
+    }
+    .message-container {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 30px 80px;
+      text-align: center;
+    }
+    .birthday-tag {
+      display: inline-block;
+      background: var(--rose);
+      color: white;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border-radius: 30px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s ease;
+    }
+    .message-container h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 12px;
+      animation: fadeUp 0.7s ease 0.1s both;
+    }
+    .message-container h1 span { color: var(--rose); font-style: italic; }
+    .gold-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 24px auto;
+      animation: fadeUp 0.7s ease 0.2s both;
+    }
+    .message-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 50px rgba(232,114,138,0.1);
+      text-align: left;
+      animation: fadeUp 0.8s ease 0.3s both;
+      margin-top: 10px;
+    }
+    .message-card p {
+      font-size: 1.08rem;
+      line-height: 1.9;
+      color: #5a3d44;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+    .message-card .sign-off {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--rose);
+      margin-top: 24px;
+    }
+
+    /* ═══════════════════════════════
+       PAGE 3 — MEMORY LANE
+    ═══════════════════════════════ */
+    #page-memory {
+      background: var(--soft);
+    }
+    .memory-header {
+      text-align: center;
+      padding: 50px 20px 30px;
+    }
+    .memory-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--dark);
+    }
+    .memory-header h2 span { color: var(--rose); font-style: italic; }
+    .memory-header p { color: #999; margin-top: 8px; font-size: 0.9rem; }
+
+    .timeline {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px 20px 80px;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: var(--blush);
+      transform: translateX(-50%);
+    }
+    .memory-item {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: calc(50% + 30px);
+      margin-bottom: 50px;
+      position: relative;
+      animation: fadeUp 0.6s ease both;
+    }
+    .memory-item:nth-child(even) {
+      justify-content: flex-start;
+      padding-right: 0;
+      padding-left: calc(50% + 30px);
+    }
+    .memory-dot {
+      position: absolute;
+      left: 50%;
+      top: 20px;
+      width: 14px; height: 14px;
+      background: var(--rose);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--rose);
+    }
+    .memory-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.07);
+      width: 100%;
+      max-width: 280px;
+      transition: transform 0.3s;
+    }
+    .memory-card:hover { transform: translateY(-4px); }
+    .memory-photo {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      background: var(--blush);
+    }
+    .memory-photo-placeholder {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, var(--blush), #fddde6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      color: var(--rose);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+    .memory-photo-placeholder span { font-size: 2rem; }
+    .memory-text { padding: 16px 18px 20px; }
+    .memory-date {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .memory-caption {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .memory-desc { font-size: 0.85rem; color: #888; line-height: 1.6; }
+
+    /* ═══════════════════════════════
+       PAGE 4 — QUIZ
+    ═══════════════════════════════ */
+    #page-quiz {
+      background: linear-gradient(135deg, #fff0f5, #fdf6f9);
+    }
+    .quiz-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 50px 24px 80px;
+    }
+    .quiz-container h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      text-align: center;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .quiz-container h2 span { color: var(--rose); font-style: italic; }
+    .quiz-subtitle { text-align: center; color: #999; font-size: 0.9rem; margin-bottom: 36px; }
+
+    .quiz-card {
+      background: white;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 10px 40px rgba(232,114,138,0.1);
+    }
+    .quiz-progress {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 10px;
+    }
+    .quiz-question {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--dark);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .quiz-options { display: flex; flex-direction: column; gap: 12px; }
+    .quiz-option {
+      padding: 14px 20px;
+      border: 2px solid var(--blush);
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.25s;
+      background: white;
+      text-align: left;
+      font-family: 'Lato', sans-serif;
+      color: var(--dark);
+    }
+    .quiz-option:hover { border-color: var(--rose); background: #fff0f3; }
+    .quiz-option.correct { border-color: #5cb85c; background: #f0fff0; color: #2d6a2d; }
+    .quiz-option.wrong { border-color: #e55; background: #fff0f0; color: #a00; }
+    .quiz-feedback {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      min-height: 24px;
+      color: var(--rose);
+      font-style: italic;
+    }
+    .quiz-next {
+      margin-top: 20px;
+      padding: 12px 32px;
+      background: var(--rose);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      display: none;
+      transition: background 0.3s;
+    }
+    .quiz-next:hover { background: #d05470; }
+    .quiz-score {
+      text-align: center;
+      display: none;
+    }
+    .quiz-score .score-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      color: var(--rose);
+    }
+    .quiz-score p { font-size: 1rem; color: #888; margin-top: 8px; }
+    .quiz-score .score-msg {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin: 16px 0;
+    }
+    .quiz-restart {
+      padding: 12px 32px;
+      background: var(--rose);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      margin-top: 12px;
+    }
+
+    /* ═══════════════════════════════
+       PAGE 5 — MINI GAME
+    ═══════════════════════════════ */
+    #page-game {
+      background: linear-gradient(160deg, #1a0a10 0%, #2d1220 100%);
+      color: white;
+    }
+    .game-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 50px 24px 60px;
+      text-align: center;
+    }
+    .game-container h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 6px;
+    }
+    .game-container h2 span { color: var(--rose); font-style: italic; }
+    .game-subtitle { color: #999; font-size: 0.9rem; margin-bottom: 24px; }
+    .game-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 20px;
+    }
+    .stat-box { text-align: center; }
+    .stat-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: #888; }
+    .stat-val { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--rose); }
+
+    #game-canvas {
+      border: 2px solid #3a1525;
+      border-radius: 16px;
+      background: #0f0508;
+      display: block;
+      margin: 0 auto;
+      cursor: crosshair;
+      max-width: 100%;
+    }
+    .game-btn {
+      margin-top: 20px;
+      padding: 14px 40px;
+      background: var(--rose);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .game-btn:hover { background: #d05470; transform: translateY(-2px); }
+    .game-over-msg {
+      display: none;
+      margin-top: 20px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--blush);
+    }
+
+    /* ── SHARED ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .timeline::before { left: 20px; }
+      .memory-item, .memory-item:nth-child(even) {
+        justify-content: flex-start;
+        padding-left: 50px;
+        padding-right: 0;
+      }
+      .memory-dot { left: 20px; }
+      nav button { padding: 6px 10px; font-size: 0.72rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     PASSWORD PAGE
+══════════════════════════════════ -->
+<div id="page-lock" class="page active">
+  <div class="lock-box">
+    <div class="lock-emoji">🔐</div>
+    <h2>For Preachi's Eyes Only</h2>
+    <p>Enter the secret password to open your gift 🎁</p>
+    <!--
+      ════════════════════════════════════════
+      CHANGE THE PASSWORD BELOW
+      Replace: --ENTER-YOUR-PASSWORD-HERE--
+      Example: mypassword123
+      ════════════════════════════════════════
+    -->
+    <input type="password" id="lock-input" placeholder="Enter password…" />
+    <button onclick="checkPassword()">Open My Gift 💌</button>
+    <p class="lock-error" id="lock-error">❌ Wrong password, try again!</p>
+  </div>
+</div>
+
+<!-- NAVIGATION (hidden until unlocked) -->
+<nav id="main-nav" style="display:none;">
+  <button class="active" onclick="showPage('message', this)">💌 Message</button>
+  <button onclick="showPage('memory', this)">📸 Memories</button>
+  <button onclick="showPage('quiz', this)">🧠 Quiz</button>
+  <button onclick="showPage('game', this)">🎮 Game</button>
+</nav>
+
+<!-- ══════════════════════════════════
+     PAGE 1 — CUTE MESSAGE
+══════════════════════════════════ -->
+<div id="page-message" class="page" style="display:none;">
+  <div class="hearts-bg" id="hearts-bg"></div>
+  <div class="message-container">
+    <div class="birthday-tag">🎀 Happy Birthday</div>
+    <h1>To my dearest <span>Preachi</span></h1>
+    <div class="gold-divider"></div>
+
+    <div class="message-card">
+      <!--
+        ════════════════════════════════════════
+        YOUR MESSAGE TO PREACHI GOES HERE
+        Replace the placeholder paragraphs below
+        with your own words. You can have as many
+        <p>...</p> blocks as you want.
+        ════════════════════════════════════════
+      -->
+      <p>--WRITE YOUR OPENING LINE HERE-- (e.g. "Happy Birthday, my love! Today is all about you.")</p>
+      <p>--WRITE YOUR SECOND PARAGRAPH HERE-- (e.g. tell her what she means to you)</p>
+      <p>--WRITE YOUR THIRD PARAGRAPH HERE-- (e.g. a favourite memory or inside joke)</p>
+      <p>--WRITE YOUR CLOSING LINE HERE-- (e.g. "I love you more than words can say.")</p>
+
+      <!--
+        ════════════════════════════════════════
+        SIGN OFF — Replace with your name/nickname
+        ════════════════════════════════════════
+      -->
+      <div class="sign-off">Forever yours, --YOUR NAME--  🌹</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE 2 — MEMORY LANE
+══════════════════════════════════ -->
+<div id="page-memory" class="page" style="display:none;">
+  <div class="memory-header">
+    <h2>Our <span>Memory Lane</span></h2>
+    <p>Some of my favourite moments with you 🌸</p>
+  </div>
+
+  <div class="timeline">
+
+    <!--
+      ════════════════════════════════════════
+      HOW TO ADD A MEMORY:
+      Copy one <div class="memory-item"> block,
+      paste it below, and fill in:
+        - DATE: e.g. "February 2023"
+        - CAPTION: short title
+        - DESCRIPTION: a sentence about it
+        - PHOTO: replace the placeholder block with:
+            <img src="your-photo.jpg" class="memory-photo" alt="..."/>
+          (Upload your photo to GitHub alongside index.html)
+      ════════════════════════════════════════
+    -->
+
+    <div class="memory-item">
+      <div class="memory-dot"></div>
+      <div class="memory-card">
+        <!-- PHOTO: replace this block with <img src="photo1.jpg" class="memory-photo"/> -->
+        <div class="memory-photo-placeholder"><span>📸</span>Add your photo here</div>
+        <div class="memory-text">
+          <div class="memory-date">--DATE-- (e.g. March 2023)</div>
+          <div class="memory-caption">--CAPTION-- (e.g. "Our First Date")</div>
+          <div class="memory-desc">--DESCRIPTION-- (e.g. "That little café where everything began…")</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="memory-item">
+      <div class="memory-dot"></div>
+      <div class="memory-card">
+        <div class="memory-photo-placeholder"><span>📸</span>Add your photo here</div>
+        <div class="memory-text">
+          <div class="memory-date">--DATE--</div>
+          <div class="memory-caption">--CAPTION--</div>
+          <div class="memory-desc">--DESCRIPTION--</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="memory-item">
+      <div class="memory-dot"></div>
+      <div class="memory-card">
+        <div class="memory-photo-placeholder"><span>📸</span>Add your photo here</div>
+        <div class="memory-text">
+          <div class="memory-date">--DATE--</div>
+          <div class="memory-caption">--CAPTION--</div>
+          <div class="memory-desc">--DESCRIPTION--</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="memory-item">
+      <div class="memory-dot"></div>
+      <div class="memory-card">
+        <div class="memory-photo-placeholder"><span>📸</span>Add your photo here</div>
+        <div class="memory-text">
+          <div class="memory-date">--DATE--</div>
+          <div class="memory-caption">--CAPTION--</div>
+          <div class="memory-desc">--DESCRIPTION--</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more memory blocks by copying the block above ↑ -->
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE 3 — QUIZ
+══════════════════════════════════ -->
+<div id="page-quiz" class="page" style="display:none;">
+  <div class="quiz-container">
+    <h2>How well does <span>Preachi</span> know us?</h2>
+    <p class="quiz-subtitle">Answer carefully… 👀</p>
+
+    <div class="quiz-card">
+      <div id="quiz-body">
+        <div class="quiz-progress" id="quiz-progress">Question 1 of 5</div>
+        <div class="quiz-question" id="quiz-question">Loading…</div>
+        <div class="quiz-options" id="quiz-options"></div>
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+        <button class="quiz-next" id="quiz-next" onclick="nextQuestion()">Next →</button>
+      </div>
+
+      <div class="quiz-score" id="quiz-score">
+        <div class="score-num" id="score-display">0/5</div>
+        <div class="score-msg" id="score-msg">--</div>
+        <p id="score-sub">--</p>
+        <button class="quiz-restart" onclick="restartQuiz()">Try Again 🔄</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE 4 — MINI GAME
+══════════════════════════════════ -->
+<div id="page-game" class="page" style="display:none;">
+  <div class="game-container">
+    <h2>Catch the <span>Hearts</span></h2>
+    <p class="game-subtitle">Catch 20 hearts to unlock a secret message 💕</p>
+
+    <div class="game-stats">
+      <div class="stat-box">
+        <div class="stat-label">Caught</div>
+        <div class="stat-val" id="game-score">0</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Missed</div>
+        <div class="stat-val" id="game-misses">0</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Goal</div>
+        <div class="stat-val">20</div>
+      </div>
+    </div>
+
+    <canvas id="game-canvas" width="420" height="340"></canvas>
+    <br/>
+    <button class="game-btn" id="game-btn" onclick="startGame()">Start Game 💖</button>
+
+    <!--
+      ════════════════════════════════════════
+      SECRET MESSAGE — shown after winning
+      Replace the text below with your message
+      ════════════════════════════════════════
+    -->
+    <div class="game-over-msg" id="game-over-msg">
+      🎉 You did it, Preachi! <br/>
+      "--YOUR SECRET MESSAGE HERE-- (e.g. I love you to the moon and back! 🌙)"
+    </div>
+  </div>
+</div>
+
+
+<script>
+  /* ══════════════════════════════
+     PASSWORD
+  ══════════════════════════════ */
+  const PASSWORD = "--ENTER-YOUR-PASSWORD-HERE--";
+  // ↑ CHANGE THIS to your chosen password, e.g. "preachi2024"
+
+  function checkPassword() {
+    const val = document.getElementById('lock-input').value;
+    if (val === PASSWORD) {
+      document.getElementById('page-lock').style.display = 'none';
+      document.getElementById('main-nav').style.display = 'flex';
+      document.getElementById('page-message').style.display = 'block';
+      document.getElementById('page-message').classList.add('active');
+      spawnHearts();
+    } else {
+      document.getElementById('lock-error').style.display = 'block';
+    }
+  }
+
+  document.getElementById('lock-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') checkPassword();
+  });
+
+  /* ══════════════════════════════
+     NAVIGATION
+  ══════════════════════════════ */
+  function showPage(name, btn) {
+    document.querySelectorAll('.page').forEach(p => {
+      p.style.display = 'none';
+      p.classList.remove('active');
+    });
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    const target = document.getElementById('page-' + name);
+    target.style.display = 'block';
+    target.classList.add('active');
+    btn.classList.add('active');
+    if (name === 'message') spawnHearts();
+    if (name === 'quiz') initQuiz();
+  }
+
+  /* ══════════════════════════════
+     FLOATING HEARTS
+  ══════════════════════════════ */
+  function spawnHearts() {
+    const bg = document.getElementById('hearts-bg');
+    if (!bg) return;
+    bg.innerHTML = '';
+    const emojis = ['💖','💕','🌸','✨','💗','🌹','💓'];
+    for (let i = 0; i < 18; i++) {
+      const el = document.createElement('div');
+      el.className = 'heart-particle';
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.bottom = '-50px';
+      el.style.animationDuration = (6 + Math.random() * 8) + 's';
+      el.style.animationDelay = (Math.random() * 8) + 's';
+      el.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
+      bg.appendChild(el);
+    }
+  }
+
+  /* ══════════════════════════════
+     QUIZ DATA
+     ════════════════════════════════════════
+     HOW TO EDIT QUESTIONS:
+     - "q": your question text
+     - "opts": 4 answer options (array)
+     - "ans": index of correct answer (0=first, 1=second, 2=third, 3=fourth)
+     - "msg": message shown after she answers
+     ════════════════════════════════════════
+  ══════════════════════════════ */
+  const quizData = [
+    {
+      q: "--YOUR QUESTION 1-- (e.g. Where did we go on our first date?)",
+      opts: ["--Option A--", "--Option B--", "--Option C--", "--Option D--"],
+      ans: 0, // ← change to the index of the correct answer
+      msg: "--FEEDBACK MESSAGE-- (e.g. Yes! How could you forget 😄)"
+    },
+    {
+      q: "--YOUR QUESTION 2--",
+      opts: ["--Option A--", "--Option B--", "--Option C--", "--Option D--"],
+      ans: 1,
+      msg: "--FEEDBACK MESSAGE--"
+    },
+    {
+      q: "--YOUR QUESTION 3--",
+      opts: ["--Option A--", "--Option B--", "--Option C--", "--Option D--"],
+      ans: 2,
+      msg: "--FEEDBACK MESSAGE--"
+    },
+    {
+      q: "--YOUR QUESTION 4--",
+      opts: ["--Option A--", "--Option B--", "--Option C--", "--Option D--"],
+      ans: 0,
+      msg: "--FEEDBACK MESSAGE--"
+    },
+    {
+      q: "--YOUR QUESTION 5--",
+      opts: ["--Option A--", "--Option B--", "--Option C--", "--Option D--"],
+      ans: 3,
+      msg: "--FEEDBACK MESSAGE--"
+    },
+  ];
+
+  let currentQ = 0, score = 0, answered = false;
+
+  function initQuiz() {
+    currentQ = 0; score = 0;
+    document.getElementById('quiz-body').style.display = 'block';
+    document.getElementById('quiz-score').style.display = 'none';
+    loadQuestion();
+  }
+
+  function loadQuestion() {
+    answered = false;
+    const data = quizData[currentQ];
+    document.getElementById('quiz-progress').textContent = `Question ${currentQ + 1} of ${quizData.length}`;
+    document.getElementById('quiz-question').textContent = data.q;
+    document.getElementById('quiz-feedback').textContent = '';
+    document.getElementById('quiz-next').style.display = 'none';
+
+    const opts = document.getElementById('quiz-options');
+    opts.innerHTML = '';
+    data.opts.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-option';
+      btn.textContent = opt;
+      btn.onclick = () => selectAnswer(i, btn);
+      opts.appendChild(btn);
+    });
+  }
+
+  function selectAnswer(idx, btn) {
+    if (answered) return;
+    answered = true;
+    const data = quizData[currentQ];
+    const allBtns = document.querySelectorAll('.quiz-option');
+    allBtns.forEach(b => b.style.pointerEvents = 'none');
+    if (idx === data.ans) {
+      btn.classList.add('correct');
+      score++;
+      document.getElementById('quiz-feedback').textContent = '✅ ' + data.msg;
+    } else {
+      btn.classList.add('wrong');
+      allBtns[data.ans].classList.add('correct');
+      document.getElementById('quiz-feedback').textContent = '❌ ' + data.msg;
+    }
+    document.getElementById('quiz-next').style.display = 'inline-block';
+  }
+
+  function nextQuestion() {
+    currentQ++;
+    if (currentQ < quizData.length) {
+      loadQuestion();
+    } else {
+      showScore();
+    }
+  }
+
+  function showScore() {
+    document.getElementById('quiz-body').style.display = 'none';
+    const s = document.getElementById('quiz-score');
+    s.style.display = 'block';
+    document.getElementById('score-display').textContent = `${score}/${quizData.length}`;
+
+    // Score messages — feel free to edit these!
+    let msg, sub;
+    if (score === quizData.length) {
+      msg = "Perfect score! 🎉";
+      sub = "You know us better than anyone. I love you! 💖";
+    } else if (score >= quizData.length - 1) {
+      msg = "So close! Almost perfect 😍";
+      sub = "You know me so well, Preachi 🌸";
+    } else if (score >= Math.floor(quizData.length / 2)) {
+      msg = "Not bad! 😄";
+      sub = "But you've got some catching up to do hehe 💕";
+    } else {
+      msg = "Hmm… we need to talk 😂";
+      sub = "Just kidding, I love you anyway! 🥰";
+    }
+    document.getElementById('score-msg').textContent = msg;
+    document.getElementById('score-sub').textContent = sub;
+  }
+
+  function restartQuiz() { initQuiz(); }
+
+  /* ══════════════════════════════
+     MINI GAME — Catch the Hearts
+  ══════════════════════════════ */
+  const canvas = document.getElementById('game-canvas');
+  const ctx = canvas.getContext('2d');
+
+  let hearts = [], gameRunning = false;
+  let gameScore = 0, gameMisses = 0;
+  const WIN_SCORE = 20, MAX_MISSES = 5;
+  let animId;
+
+  const BASKET_W = 70, BASKET_H = 18;
+  let basket = { x: 175, y: canvas.height - 30 };
+
+  canvas.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    basket.x = (e.clientX - rect.left) * scaleX - BASKET_W / 2;
+  });
+  canvas.addEventListener('touchmove', e => {
+    e.preventDefault();
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    basket.x = (e.touches[0].clientX - rect.left) * scaleX - BASKET_W / 2;
+  }, { passive: false });
+
+  function spawnHeart() {
+    hearts.push({
+      x: Math.random() * (canvas.width - 30) + 15,
+      y: -20,
+      speed: 1.5 + Math.random() * 2.5,
+      size: 16 + Math.random() * 12,
+      color: ['#e8728a','#f5a0b0','#ff6b9d','#c9a96e'][Math.floor(Math.random()*4)],
+      char: ['💖','💕','💗','❤️','🌸'][Math.floor(Math.random()*5)]
+    });
+  }
+
+  function drawHeart(h) {
+    ctx.font = h.size + 'px serif';
+    ctx.fillText(h.char, h.x, h.y);
+  }
+
+  function drawBasket() {
+    ctx.fillStyle = '#e8728a';
+    ctx.beginPath();
+    ctx.roundRect(basket.x, basket.y, BASKET_W, BASKET_H, 8);
+    ctx.fill();
+    ctx.fillStyle = 'white';
+    ctx.font = '12px serif';
+    ctx.fillText('🤲', basket.x + BASKET_W/2 - 10, basket.y + 14);
+  }
+
+  let frameCount = 0;
+  function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw starfield bg
+    ctx.fillStyle = '#0f0508';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    frameCount++;
+    if (frameCount % 60 === 0) spawnHeart();
+
+    for (let i = hearts.length - 1; i >= 0; i--) {
+      const h = hearts[i];
+      h.y += h.speed;
+      drawHeart(h);
+
+      // Catch check
+      if (h.y + h.size > basket.y && h.x > basket.x && h.x < basket.x + BASKET_W) {
+        hearts.splice(i, 1);
+        gameScore++;
+        document.getElementById('game-score').textContent = gameScore;
+        if (gameScore >= WIN_SCORE) { endGame(true); return; }
+        continue;
+      }
+      // Missed
+      if (h.y > canvas.height + 10) {
+        hearts.splice(i, 1);
+        gameMisses++;
+        document.getElementById('game-misses').textContent = gameMisses;
+        if (gameMisses >= MAX_MISSES) { endGame(false); return; }
+      }
+    }
+
+    drawBasket();
+    animId = requestAnimationFrame(gameLoop);
+  }
+
+  function startGame() {
+    hearts = [];
+    gameScore = 0; gameMisses = 0; frameCount = 0;
+    document.getElementById('game-score').textContent = 0;
+    document.getElementById('game-misses').textContent = 0;
+    document.getElementById('game-over-msg').style.display = 'none';
+    document.getElementById('game-btn').textContent = 'Restart 🔄';
+    if (animId) cancelAnimationFrame(animId);
+    gameRunning = true;
+    gameLoop();
+  }
+
+  function endGame(won) {
+    cancelAnimationFrame(animId);
+    gameRunning = false;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#0f0508';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = won ? '#e8728a' : '#888';
+    ctx.font = 'bold 28px Playfair Display, serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(won ? '🎉 You Win, Preachi!' : '💔 Game Over!', canvas.width/2, canvas.height/2 - 10);
+    ctx.font = '16px Lato, sans-serif';
+    ctx.fillStyle = '#ccc';
+    ctx.fillText(won ? 'You caught all my love! 💖' : `Caught: ${gameScore} | Try again!`, canvas.width/2, canvas.height/2 + 30);
+    ctx.textAlign = 'left';
+    if (won) document.getElementById('game-over-msg').style.display = 'block';
+  }
+
+  // Draw idle canvas
+  ctx.fillStyle = '#0f0508';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = '#e8728a';
+  ctx.font = '18px Lato, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('Press Start to play! 💖', canvas.width/2, canvas.height/2);
+  ctx.textAlign = 'left';
+</script>
+</body>
+</html>
