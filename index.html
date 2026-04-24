@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthdayyy Preachiii 😋</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Caveat:wght@600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════
+       PASSWORD PAGE
+  ══════════════════════════════════ -->
+  <div id="page-password" class="page active">
+    <div class="pw-bg-pattern"></div>
+    <div class="pw-floaters" id="pw-floaters"></div>
+    <div class="pw-card">
+      <div class="pw-top-label">For Preachi — Eyes Only</div>
+      <h1 class="pw-title">Happy Birthdayyy<br/><span>Preachiii</span></h1>
+      <p class="pw-line2">Chal ab password bata <span class="emoji-inline">😈</span></p>
+      <div class="pw-hint-box">
+        <span class="pw-hint-label">Hint</span>
+        Humara veh kaunsa baccha hai jo bilkul aap par gaya hai <span class="emoji-inline">😛</span>
+      </div>
+      <div class="pw-input-wrap">
+        <input type="password" id="pw-input" placeholder="Password daalo yahan..." autocomplete="off"/>
+        <div class="pw-error" id="pw-error">Galat hai! Sochke daalo 😂</div>
+      </div>
+      <button class="pw-btn" id="pw-btn">आरा, मेरा Gift खोलो !!</button>
+      <div class="pw-footer">Made with chaos by Shinchan</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       MAIN SHELL (nav + pages)
+  ══════════════════════════════════ -->
+  <div id="app-shell" class="hidden">
+
+    <!-- HAMBURGER (mobile) -->
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- SIDEBAR NAV -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-brand">Preachi's<br/>World <span>🐒</span></div>
+      <ul class="nav-links">
+        <li><a href="#" class="nav-link active" data-page="home">
+          <span class="nav-icon">01</span> Home
+        </a></li>
+        <li><a href="#" class="nav-link" data-page="memories">
+          <span class="nav-icon">02</span> Memories
+        </a></li>
+        <li><a href="#" class="nav-link" data-page="quiz">
+          <span class="nav-icon">03</span> Quiz
+        </a></li>
+        <li><a href="#" class="nav-link" data-page="game">
+          <span class="nav-icon">04</span> Gaming Zone
+        </a></li>
+        <li><a href="#" class="nav-link" data-page="music">
+          <span class="nav-icon">05</span> Music
+        </a></li>
+        <li><a href="#" class="nav-link" data-page="timer">
+          <span class="nav-icon">06</span> Us: Day 1
+        </a></li>
+        <li><a href="#" class="nav-link" data-page="future">
+          <span class="nav-icon">07</span> Future Plans
+        </a></li>
+        <li><a href="#" class="nav-link" data-page="love">
+          <span class="nav-icon">08</span> Why I Love You
+        </a></li>
+        <li><a href="#" class="nav-link" data-page="ending">
+          <span class="nav-icon">09</span> The End
+        </a></li>
+      </ul>
+      <div class="sidebar-footer">Shinchan wuz here 🌀</div>
+    </nav>
+
+    <!-- OVERLAY (mobile) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <!-- PAGE CONTENT AREA -->
+    <main class="main-content" id="main-content">
+
+      <!-- ── HOME ── -->
+      <section class="page-section active" id="sec-home">
+        <div class="home-hero">
+          <div class="home-tag">Tera Shinchan presents...</div>
+          <h1 class="home-title">Happy Birthdayyy<br/><em>Twin!</em></h1>
+          <p class="home-sub">To my favourite monkey</p>
+        </div>
+        <div class="content-card big-message-card">
+          <div class="card-label">The Big Message</div>
+          <!--
+            ══════════════════════════════════════
+            YOUR BIG MESSAGE — Replace each <p> below
+            ══════════════════════════════════════
+          -->
+          <p>--WRITE YOUR OPENING LINE HERE-- (e.g. "Hey monkey, happy birthday! Aaj toh teri party banti hai...")</p>
+          <p>--WRITE YOUR SECOND PARAGRAPH-- (kuch sweet ya funny)</p>
+          <p>--WRITE YOUR THIRD PARAGRAPH-- (inside joke, memory, or honest feeling)</p>
+          <p>--WRITE YOUR CLOSING LINE-- (e.g. "Love you more than Shinchan loves snacks")</p>
+          <!--
+            ══════════════════════════════════════
+            SIGN OFF — Replace --YOUR NAME-- below
+            ══════════════════════════════════════
+          -->
+          <div class="message-sign">— --YOUR NAME-- (aka Shinchan)</div>
+        </div>
+        <div class="photo-grid-section">
+          <div class="section-label">Some of my favourite shots of you</div>
+          <div class="photo-grid" id="home-photos">
+            <!-- PHOTOS: Replace src="#" with actual image paths e.g. src="photos/photo1.jpg" -->
+            <!-- Upload your images to a "photos/" folder in GitHub alongside index.html -->
+            <div class="photo-slot"><div class="photo-placeholder"><span>Add Photo</span></div></div>
+            <div class="photo-slot"><div class="photo-placeholder"><span>Add Photo</span></div></div>
+            <div class="photo-slot"><div class="photo-placeholder"><span>Add Photo</span></div></div>
+            <div class="photo-slot"><div class="photo-placeholder"><span>Add Photo</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── MEMORIES ── -->
+      <section class="page-section" id="sec-memories">
+        <div class="section-hero">
+          <div class="section-tag">Chapter 02</div>
+          <h2 class="section-title">Our Memories</h2>
+          <p class="section-sub">Every chaotic, beautiful moment — documented.</p>
+        </div>
+        <div class="memories-timeline">
+          <!--
+            ══════════════════════════════════════
+            HOW TO EDIT MEMORIES:
+            • DATE      → e.g. "September 2024"
+            • TITLE     → short fun title
+            • TEXT      → a sentence or two
+            • PHOTO: Replace <div class="photo-placeholder"> with:
+              <img src="photos/photo.jpg" class="memory-img" alt="memory"/>
+            ══════════════════════════════════════
+          -->
+          <div class="memory-entry">
+            <div class="memory-media">
+              <div class="photo-placeholder tall"><span>Add Photo</span></div>
+            </div>
+            <div class="memory-body">
+              <div class="memory-date">--DATE-- (e.g. September 2024)</div>
+              <div class="memory-title">--TITLE-- (e.g. "Pehli Mulakat")</div>
+              <div class="memory-text">--TEXT-- (e.g. "Aur tab se meri zindagi mein ek monkey aa gayi...")</div>
+            </div>
+          </div>
+          <div class="memory-entry reverse">
+            <div class="memory-media">
+              <div class="photo-placeholder tall"><span>Add Photo</span></div>
+            </div>
+            <div class="memory-body">
+              <div class="memory-date">--DATE--</div>
+              <div class="memory-title">--TITLE--</div>
+              <div class="memory-text">--TEXT--</div>
+            </div>
+          </div>
+          <div class="memory-entry">
+            <div class="memory-media">
+              <div class="photo-placeholder tall"><span>Add Photo</span></div>
+            </div>
+            <div class="memory-body">
+              <div class="memory-date">--DATE--</div>
+              <div class="memory-title">--TITLE--</div>
+              <div class="memory-text">--TEXT--</div>
+            </div>
+          </div>
+          <div class="memory-entry reverse">
+            <div class="memory-media">
+              <div class="photo-placeholder tall"><span>Add Photo</span></div>
+            </div>
+            <div class="memory-body">
+              <div class="memory-date">--DATE--</div>
+              <div class="memory-title">--TITLE--</div>
+              <div class="memory-text">--TEXT--</div>
+            </div>
+          </div>
+          <!-- Copy a memory-entry block above to add more -->
+        </div>
+      </section>
+
+      <!-- ── QUIZ ── -->
+      <section class="page-section" id="sec-quiz">
+        <div class="section-hero">
+          <div class="section-tag">Chapter 03</div>
+          <h2 class="section-title">The Monkey Quiz</h2>
+          <p class="section-sub">Shinchan wants to know how well you know us.</p>
+        </div>
+        <div class="quiz-wrap">
+          <div class="quiz-card" id="quiz-card">
+            <div id="quiz-active">
+              <div class="quiz-meta" id="quiz-meta">Question 1 of 5</div>
+              <div class="quiz-q" id="quiz-q">Loading...</div>
+              <div class="quiz-opts" id="quiz-opts"></div>
+              <div class="quiz-feedback" id="quiz-feedback"></div>
+              <button class="quiz-next-btn hidden" id="quiz-next">Next</button>
+            </div>
+            <div class="quiz-result hidden" id="quiz-result">
+              <div class="result-score" id="result-score">0/5</div>
+              <div class="result-title" id="result-title">--</div>
+              <div class="result-sub" id="result-sub">--</div>
+              <button class="quiz-next-btn" onclick="restartQuiz()">Try Again</button>
+            </div>
+          </div>
+          <div class="quiz-photo-strip">
+            <div class="photo-placeholder"><span>Add Photo</span></div>
+            <div class="photo-placeholder"><span>Add Photo</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── GAME ── -->
+      <section class="page-section" id="sec-game">
+        <div class="section-hero">
+          <div class="section-tag">Chapter 04</div>
+          <h2 class="section-title">Gaming Zone</h2>
+          <p class="section-sub">Hit the bouncing monkey! 43 hits = secret message.</p>
+        </div>
+        <div class="game-wrap">
+          <div class="game-hud">
+            <div class="hud-box">
+              <div class="hud-label">Hits</div>
+              <div class="hud-val" id="g-score">0</div>
+            </div>
+            <div class="hud-box">
+              <div class="hud-label">Level</div>
+              <div class="hud-val" id="g-level">1</div>
+            </div>
+            <div class="hud-box">
+              <div class="hud-label">Next Lvl</div>
+              <div class="hud-val" id="g-next">15</div>
+            </div>
+          </div>
+          <canvas id="game-canvas"></canvas>
+          <div class="game-controls">
+            <button class="game-start-btn" id="game-start-btn" onclick="startGame()">Start Game</button>
+          </div>
+          <div class="game-secret hidden" id="game-secret">
+            <!--
+              WIN MESSAGE — shown at 43 hits. Replace the text below!
+            -->
+            <div class="secret-label">Secret Unlocked!</div>
+            <div class="secret-text">
+              "--YOUR SECRET MESSAGE HERE-- (e.g. Tu jeet gayi, monkey! Tujhe mujhe mil ke ek treat deni padegi 🍌)"
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── MUSIC ── -->
+      <section class="page-section" id="sec-music">
+        <div class="section-hero">
+          <div class="section-tag">Chapter 05</div>
+          <h2 class="section-title">Our Playlist</h2>
+          <p class="section-sub">Songs we've listened to together.</p>
+        </div>
+        <div class="music-wrap">
+          <div class="now-playing-card" id="now-playing">
+            <div class="vinyl" id="vinyl">
+              <div class="vinyl-center"></div>
+            </div>
+            <div class="np-info">
+              <div class="np-label">Now Playing</div>
+              <div class="np-title" id="np-title">--</div>
+              <div class="np-artist" id="np-artist">--</div>
+              <div class="np-controls">
+                <button onclick="prevTrack()">&#8592; Prev</button>
+                <button onclick="togglePlay()" id="play-btn">Play</button>
+                <button onclick="nextTrack()">Next &#8594;</button>
+              </div>
+            </div>
+          </div>
+          <!--
+            ══════════════════════════════════════
+            SONG LIST — Edit titles, artists, and src below.
+            src: link to an audio file you upload to GitHub
+                 e.g.  src="music/song1.mp3"
+            ══════════════════════════════════════
+          -->
+          <div class="track-list" id="track-list">
+            <div class="track-item active" data-index="0" data-src="--SONG FILE PATH-- (e.g. music/song1.mp3)">
+              <div class="track-num">01</div>
+              <div class="track-info">
+                <div class="track-title">--SONG TITLE 1--</div>
+                <div class="track-artist">--ARTIST--</div>
+              </div>
+            </div>
+            <div class="track-item" data-index="1" data-src="--SONG FILE PATH--">
+              <div class="track-num">02</div>
+              <div class="track-info">
+                <div class="track-title">--SONG TITLE 2--</div>
+                <div class="track-artist">--ARTIST--</div>
+              </div>
+            </div>
+            <div class="track-item" data-index="2" data-src="--SONG FILE PATH--">
+              <div class="track-num">03</div>
+              <div class="track-info">
+                <div class="track-title">--SONG TITLE 3--</div>
+                <div class="track-artist">--ARTIST--</div>
+              </div>
+            </div>
+            <div class="track-item" data-index="3" data-src="--SONG FILE PATH--">
+              <div class="track-num">04</div>
+              <div class="track-info">
+                <div class="track-title">--SONG TITLE 4--</div>
+                <div class="track-artist">--ARTIST--</div>
+              </div>
+            </div>
+            <div class="track-item" data-index="4" data-src="--SONG FILE PATH--">
+              <div class="track-num">05</div>
+              <div class="track-info">
+                <div class="track-title">--SONG TITLE 5--</div>
+                <div class="track-artist">--ARTIST--</div>
+              </div>
+            </div>
+            <!-- Copy a track-item block to add more songs -->
+          </div>
+          <audio id="audio-player"></audio>
+        </div>
+      </section>
+
+      <!-- ── TIMER ── -->
+      <section class="page-section" id="sec-timer">
+        <div class="section-hero">
+          <div class="section-tag">Chapter 06</div>
+          <h2 class="section-title">Us: Day 1</h2>
+          <p class="section-sub">Since 1st September 2024 — the chaos began.</p>
+        </div>
+        <div class="timer-wrap">
+          <div class="timer-grid">
+            <div class="timer-box">
+              <div class="timer-val" id="t-days">0</div>
+              <div class="timer-label">Days</div>
+            </div>
+            <div class="timer-box">
+              <div class="timer-val" id="t-hours">0</div>
+              <div class="timer-label">Hours</div>
+            </div>
+            <div class="timer-box">
+              <div class="timer-val" id="t-mins">0</div>
+              <div class="timer-label">Minutes</div>
+            </div>
+            <div class="timer-box">
+              <div class="timer-val" id="t-secs">0</div>
+              <div class="timer-label">Seconds</div>
+            </div>
+          </div>
+          <div class="timer-message">
+            <!--
+              ══════════════════════════════════════
+              TIMER MESSAGE — Replace below
+              ══════════════════════════════════════
+            -->
+            <p>--YOUR TIMER MESSAGE HERE-- (e.g. "Itne time mein tumhara Shinchan tum se bahut zyada pyaar karne laga...")</p>
+          </div>
+          <div class="timer-photos">
+            <div class="photo-placeholder"><span>Add Photo</span></div>
+            <div class="photo-placeholder"><span>Add Photo</span></div>
+            <div class="photo-placeholder"><span>Add Photo</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── FUTURE PLANS ── -->
+      <section class="page-section" id="sec-future">
+        <div class="section-hero">
+          <div class="section-tag">Chapter 07</div>
+          <h2 class="section-title">Future Plans</h2>
+          <p class="section-sub">Things Shinchan wants to do with his monkey.</p>
+        </div>
+        <div class="plans-grid">
+          <!--
+            ══════════════════════════════════════
+            FUTURE PLANS — Edit each plan card below.
+            PHOTO: Replace placeholder with <img src="photos/..." class="plan-img"/>
+            ══════════════════════════════════════
+          -->
+          <div class="plan-card">
+            <div class="photo-placeholder plan-photo"><span>Add Photo</span></div>
+            <div class="plan-num">01</div>
+            <div class="plan-title">--PLAN TITLE 1-- (e.g. "Goa Trip")</div>
+            <div class="plan-text">--DESCRIPTION-- (e.g. "Beach pe baith ke junk food khana aur baat karna")</div>
+          </div>
+          <div class="plan-card">
+            <div class="photo-placeholder plan-photo"><span>Add Photo</span></div>
+            <div class="plan-num">02</div>
+            <div class="plan-title">--PLAN TITLE 2--</div>
+            <div class="plan-text">--DESCRIPTION--</div>
+          </div>
+          <div class="plan-card">
+            <div class="photo-placeholder plan-photo"><span>Add Photo</span></div>
+            <div class="plan-num">03</div>
+            <div class="plan-title">--PLAN TITLE 3--</div>
+            <div class="plan-text">--DESCRIPTION--</div>
+          </div>
+          <div class="plan-card">
+            <div class="photo-placeholder plan-photo"><span>Add Photo</span></div>
+            <div class="plan-num">04</div>
+            <div class="plan-title">--PLAN TITLE 4--</div>
+            <div class="plan-text">--DESCRIPTION--</div>
+          </div>
+          <!-- Copy a plan-card to add more -->
+        </div>
+      </section>
+
+      <!-- ── WHY I LOVE YOU ── -->
+      <section class="page-section" id="sec-love">
+        <div class="section-hero">
+          <div class="section-tag">Chapter 08</div>
+          <h2 class="section-title">Why I Love You</h2>
+          <p class="section-sub">A few reasons. There are many more.</p>
+        </div>
+        <div class="love-list">
+          <!--
+            ══════════════════════════════════════
+            REASONS — Edit each reason block below.
+            Add as many as you want by copying a .love-item block.
+            PHOTO: Replace placeholder with <img src="photos/..." class="love-img"/>
+            ══════════════════════════════════════
+          -->
+          <div class="love-item">
+            <div class="love-num">01</div>
+            <div class="love-content">
+              <div class="love-title">--REASON TITLE-- (e.g. "Teri hansne ki awaaz")</div>
+              <div class="love-text">--DETAIL-- (e.g. "Seriously, it's contagious. Anyone around you just starts smiling.")</div>
+              <div class="photo-placeholder love-photo"><span>Add Photo</span></div>
+            </div>
+          </div>
+          <div class="love-item">
+            <div class="love-num">02</div>
+            <div class="love-content">
+              <div class="love-title">--REASON TITLE--</div>
+              <div class="love-text">--DETAIL--</div>
+              <div class="photo-placeholder love-photo"><span>Add Photo</span></div>
+            </div>
+          </div>
+          <div class="love-item">
+            <div class="love-num">03</div>
+            <div class="love-content">
+              <div class="love-title">--REASON TITLE--</div>
+              <div class="love-text">--DETAIL--</div>
+              <div class="photo-placeholder love-photo"><span>Add Photo</span></div>
+            </div>
+          </div>
+          <div class="love-item">
+            <div class="love-num">04</div>
+            <div class="love-content">
+              <div class="love-title">--REASON TITLE--</div>
+              <div class="love-text">--DETAIL--</div>
+              <div class="photo-placeholder love-photo"><span>Add Photo</span></div>
+            </div>
+          </div>
+          <!-- Copy a love-item to add more reasons -->
+        </div>
+      </section>
+
+      <!-- ── ENDING ── -->
+      <section class="page-section" id="sec-ending">
+        <div class="ending-wrap">
+          <div class="ending-label">The End</div>
+          <h2 class="ending-title">Ab kya?</h2>
+          <div class="ending-card">
+            <!--
+              ══════════════════════════════════════
+              ENDING MESSAGE — Replace below
+              ══════════════════════════════════════
+            -->
+            <p>--WRITE YOUR ENDING MESSAGE HERE-- (e.g. "Congratulations! Tu itni saari pages dekh ke yahan tak aayi...")</p>
+            <p>--SECOND PARAGRAPH-- (e.g. "Ab tera kaam hai Shinchan ko call karna aur usse treat dena.")</p>
+            <p>--FINAL LINE-- (e.g. "Happy Birthday once more, monkey. I really do love you.")</p>
+            <div class="ending-sign">— --YOUR NAME-- (Shinchan, forever)</div>
+          </div>
+          <div class="ending-photos">
+            <div class="photo-placeholder"><span>Add Photo</span></div>
+            <div class="photo-placeholder"><span>Add Photo</span></div>
+          </div>
+        </div>
+      </section>
+
+    </main><!-- end main-content -->
+  </div><!-- end app-shell -->
+
+  <script src="script.js"></script>
+</body>
+</html>
