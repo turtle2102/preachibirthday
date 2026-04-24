@@ -25,12 +25,12 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font-body);
-  font-weight: 500;
-  background: var(--cream);
-  color: var(--dark);
-  min-height: 100vh;
-  overflow-x: hidden;
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .hidden { display: none !important; }
