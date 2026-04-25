@@ -156,7 +156,7 @@ body {
 .pw-card input[type="password"] {
   width: 100%;
   padding: 15px 22px;
-  background: rgba(255,255,255,0.08);
+  background: #0d0d0d; 
   border: 1.5px solid rgba(255,255,255,0.18);
   border-radius: 50px;
   font-size: 1rem;
