@@ -95,6 +95,7 @@ body {
 
 .pw-top-label {
   font-size: 0.72rem;
+  font-family: var(--font-head);
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -118,6 +119,7 @@ body {
 
 .pw-line2 {
   font-size: 1.05rem;
+  font-family: var(--font-head);
   color: rgba(255,255,255,0.75);
   font-weight: 500;
   margin-bottom: 22px;
@@ -140,6 +142,7 @@ body {
 
 .pw-hint-label {
   display: block;
+  font-family: var(--font-head);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -199,7 +202,7 @@ body {
   margin-top: 22px;
   font-size: 0.72rem;
   color: rgba(255,255,255,0.25);
-  font-family: var(--font-hand);
+  font-family: var(--font-head);
   font-size: 1rem;
 }
 
