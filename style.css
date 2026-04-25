@@ -43,8 +43,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--dark);
-  opacity: 0.6;  
+  background: var(--dark); 
   position: relative;
   overflow: hidden;
 }
