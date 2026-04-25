@@ -43,7 +43,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1f5f3a, #3cb371, #a8e6cf); 
+  background: #1b4332;
   position: relative;
   overflow: hidden;
 }
