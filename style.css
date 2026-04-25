@@ -82,7 +82,7 @@ body {
 .pw-card {
   position: relative;
   z-index: 2;
-  background: rgba(255,255,255,0.04);
+  background: #081c15;
   border: 1px solid rgba(255,255,255,0.1);
   backdrop-filter: blur(16px);
   border-radius: 28px;
