@@ -44,7 +44,7 @@ body {
   align-items: center;
   justify-content: center;
   background: var(--dark);
-  opacity: 0.3;  
+  opacity: 0.6;  
   position: relative;
   overflow: hidden;
 }
