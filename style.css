@@ -1028,3 +1028,189 @@ img.memory-img, img.plan-img, img.love-img {
   .game-hud { gap: 12px; }
   .hud-box { padding: 12px 16px; min-width: 70px; }
 }
+
+/* ═══════════════════════════════════════════
+   WHY I LOVE YOU — FLIP CARDS
+   Add this to the bottom of style.css
+═══════════════════════════════════════════ */
+
+.love-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 40px 48px;
+}
+
+/* The outer wrapper — sets the 3D perspective */
+.flip-card {
+  height: 380px;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+/* The inner wrapper that actually rotates */
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+/* Flipped state — triggered by JS */
+.flip-card.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+/* Both faces share these base styles */
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 28px;
+  text-align: center;
+}
+
+/* ── FRONT FACE ── */
+.card-front {
+  background: var(--dark);
+  border: 1px solid rgba(255,255,255,0.06);
+  gap: 16px;
+  transition: box-shadow 0.3s;
+}
+
+.flip-card:hover .card-front {
+  box-shadow: 0 20px 60px rgba(45,143,90,0.25);
+}
+
+.card-front-num {
+  font-family: var(--font-head);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--green-lt);
+  line-height: 1;
+  opacity: 0.4;
+}
+
+.card-front-hint {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  max-width: 200px;
+}
+
+.card-front-tap {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-lt);
+  margin-top: 8px;
+  animation: tapPulse 2s ease-in-out infinite;
+}
+
+@keyframes tapPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.05); }
+}
+
+/* ── BACK FACE ── */
+.card-back {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 10px 50px rgba(0,0,0,0.08);
+  transform: rotateY(180deg);
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  padding: 28px 26px;
+  gap: 0;
+  overflow-y: auto;
+}
+
+.card-back-num {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.card-back-title {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.card-back-text {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--mid);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.love-card-photo {
+  width: 100%;
+  min-height: 110px;
+  flex-shrink: 0;
+  margin-top: auto;
+  border-radius: 12px;
+}
+
+/* ── PROGRESS BAR ── */
+.love-progress {
+  text-align: center;
+  padding: 0 48px 60px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.love-progress-bar {
+  width: 100%;
+  max-width: 320px;
+  height: 4px;
+  background: var(--mint);
+  border-radius: 4px;
+  margin: 12px auto 0;
+  overflow: hidden;
+}
+
+.love-progress-fill {
+  height: 100%;
+  background: var(--green);
+  border-radius: 4px;
+  width: 0%;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .love-cards-grid {
+    padding: 28px 20px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  .love-progress {
+    padding: 0 20px 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .flip-card { height: 340px; }
+  .love-cards-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+}
