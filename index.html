@@ -51,6 +51,9 @@
         <li><a href="#" class="nav-link active" data-page="home">
           <span class="nav-icon">01</span> Home
         </a></li>
+        <li><a href="#" class="nav-link" data-page="proposal">
+  <span class="nav-icon">02</span> A Question...
+</a></li>
         <li><a href="#" class="nav-link" data-page="memories">
           <span class="nav-icon">02</span> Memories
         </a></li>
@@ -123,6 +126,47 @@
         </div>
       </section>
 
+      <!-- ── PROPOSAL ── -->
+      <!-- ADD THIS in index.html, right after the closing </section> of sec-home -->
+      <!-- Also add this to the nav links list (copy the format of other nav items): -->
+      <!--
+        <li><a href="#" class="nav-link" data-page="proposal">
+          <span class="nav-icon">02</span> A Question...
+        </a></li>
+      -->
+      <!-- And update all other nav-icon numbers after it: Memories becomes 03, Quiz 04, etc. -->
+
+      <section class="page-section" id="sec-proposal">
+        <div class="proposal-wrap">
+
+          <div class="proposal-card">
+            <div class="proposal-tag">A very important question...</div>
+            <h2 class="proposal-title">So...</h2>
+            <p class="proposal-question">Would you be my girlfriend? 😳</p>
+            <p class="proposal-sub">Think carefully. (There is only one correct answer.)</p>
+
+            <div class="proposal-buttons">
+              <button class="btn-yes" onclick="handleYes()">Yes!!</button>
+              <button class="btn-no" id="btn-no"
+                onmouseover="runAway(this)"
+                ontouchstart="runAway(this)">No</button>
+            </div>
+
+            <div class="proposal-yes-msg hidden" id="proposal-yes-msg">
+              <div class="yes-emoji">🎉</div>
+              <div class="yes-title">I knew it!!</div>
+              <!--
+                ════════════════════════════
+                YOUR MESSAGE after she says yes
+                Replace the text below
+                ════════════════════════════
+              -->
+              <div class="yes-text">--YOUR YES MESSAGE-- (e.g. "Knew you'd say yes, monkey. Welcome officially 🐒")</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
       <!-- ── MEMORIES ── -->
       <section class="page-section" id="sec-memories">
         <div class="section-hero">
