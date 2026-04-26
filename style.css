@@ -1214,3 +1214,150 @@ img.memory-img, img.plan-img, img.love-img {
   .flip-card { height: 340px; }
   .love-cards-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
 }
+
+/* ═══════════════════════════════════════════
+   PROPOSAL PAGE
+   Paste this at the bottom of style.css
+═══════════════════════════════════════════ */
+
+.proposal-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  background: linear-gradient(135deg, #e0f7eb 0%, #f0fdf5 60%, #d4f5e3 100%);
+  /* Overflow hidden so the No button can't escape outside the viewport */
+  overflow: hidden;
+  position: relative;
+}
+
+.proposal-card {
+  background: white;
+  border-radius: 28px;
+  padding: 56px 52px;
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 80px rgba(45, 143, 90, 0.12);
+  border: 1px solid rgba(45, 143, 90, 0.1);
+  animation: fadeUp 0.6s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.proposal-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 16px;
+}
+
+.proposal-title {
+  font-family: var(--font-head);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.proposal-question {
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.proposal-sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+/* ── BUTTONS ── */
+.proposal-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+  position: relative;
+}
+
+.btn-yes {
+  padding: 16px 44px;
+  background: var(--green);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s;
+  flex-shrink: 0;
+}
+.btn-yes:hover {
+  background: var(--green-dk);
+  transform: scale(1.05);
+}
+
+.btn-no {
+  padding: 16px 36px;
+  background: white;
+  color: #ccc;
+  border: 2px solid #e0e0e0;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 800;
+  font-family: var(--font-body);
+  cursor: pointer;
+  /* Position absolute so it can teleport freely */
+  position: fixed;
+  transition: background 0.2s;
+  z-index: 9999;
+  /* Starts in normal flow via JS — positioned after first mouseover */
+  pointer-events: auto;
+}
+.btn-no:hover { background: #fafafa; }
+
+/* ── YES MESSAGE ── */
+.proposal-yes-msg {
+  margin-top: 32px;
+  animation: fadeUp 0.5s ease;
+}
+
+.yes-emoji {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.yes-title {
+  font-family: var(--font-head);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.yes-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--mid);
+  line-height: 1.7;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .proposal-card {
+    padding: 40px 28px;
+  }
+  .proposal-title { font-size: 2.8rem; }
+  .proposal-question { font-size: 1.3rem; }
+}
