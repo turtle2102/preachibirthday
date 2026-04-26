@@ -576,3 +576,27 @@ window.addEventListener("resize", () => {
     initCanvas();
   }
 });
+
+/* ═══════════════════════════════════════════
+   WHY I LOVE YOU — FLIP CARD LOGIC
+   Add this to the bottom of script.js
+═══════════════════════════════════════════ */
+
+function flipCard(card) {
+  card.classList.toggle("flipped");
+  updateLoveProgress();
+}
+
+function updateLoveProgress() {
+  const total   = document.querySelectorAll(".flip-card").length;
+  const flipped = document.querySelectorAll(".flip-card.flipped").length;
+
+  document.getElementById("love-flipped").textContent = flipped;
+  document.getElementById("love-total").textContent   = total;
+
+  const pct = total > 0 ? (flipped / total) * 100 : 0;
+  document.getElementById("love-fill").style.width = pct + "%";
+}
+
+/* Also expose flipCard globally so onclick= works */
+window.flipCard = flipCard;
