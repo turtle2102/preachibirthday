@@ -619,52 +619,48 @@ function initNoButton() {
 
 // Called on mouseover AND touchstart
 function runAway(btn) {
-  const margin = 20;
+  const margin = 40;
   const btnW   = btn.offsetWidth;
   const btnH   = btn.offsetHeight;
 
-  // Pick a random position anywhere on screen, avoiding edges
   const maxX = window.innerWidth  - btnW - margin;
   const maxY = window.innerHeight - btnH - margin;
+  const minX = margin;
+  const minY = margin;
 
-  let newX = Math.random() * maxX + margin;
-  let newY = Math.random() * maxY + margin;
+  let newX = Math.random() * (maxX - minX) + minX;
+  let newY = Math.random() * (maxY - minY) + minY;
 
-  // Make sure it doesn't land on top of the Yes button
   const yesBtn = document.querySelector(".btn-yes");
   if (yesBtn) {
     const yr = yesBtn.getBoundingClientRect();
     const tooClose =
-      newX < yr.right + 30 &&
-      newX + btnW > yr.left - 30 &&
-      newY < yr.bottom + 30 &&
-      newY + btnH > yr.top - 30;
+      newX < yr.right + 40 &&
+      newX + btnW > yr.left - 40 &&
+      newY < yr.bottom + 40 &&
+      newY + btnH > yr.top - 40;
 
     if (tooClose) {
-      // Nudge it away
-      newX = newX > window.innerWidth / 2
-        ? newX - 180
-        : newX + 180;
+      newX = newX > window.innerWidth / 2 ? newX - 160 : newX + 160;
+      newX = Math.max(minX, Math.min(maxX, newX));
     }
   }
 
   btn.style.left = newX + "px";
   btn.style.top  = newY + "px";
 
-  // Taunt messages — change/add/remove any you like!
   const taunts = [
-    "Nahi! 😂",
-    "Pakad ke dekho!",
+    "Nahi!",
+    "Maar khayegi!",
     "Bilkul nahi!",
-    "Haha, nope!",
-    "Try karte raho...",
+    "Mai baat nahi karunga!",
+    "Humare baccho ka toh soch!",
     "Kabhi nahi!",
-    "LOL, no.",
-    "Sochte raho!",
+    "Nahinaaa yaar",
+    "China trip ka kya?",
   ];
   btn.textContent = taunts[Math.floor(Math.random() * taunts.length)];
 }
-
 function handleYes() {
   // Hide the buttons area, show the yes message
   document.querySelector(".proposal-buttons").style.display = "none";
