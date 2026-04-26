@@ -409,55 +409,134 @@
         </div>
       </section>
 
-      <!-- ── WHY I LOVE YOU ── -->
+     <!-- ── WHY I LOVE YOU ── -->
       <section class="page-section" id="sec-love">
         <div class="section-hero">
           <div class="section-tag">Chapter 08</div>
           <h2 class="section-title">Why I Love You</h2>
-          <p class="section-sub">A few reasons. There are many more.</p>
+          <p class="section-sub">Click each card to find out. Don't cry though.</p>
         </div>
-        <div class="love-list">
+
+        <div class="love-cards-grid">
+
           <!--
-            ══════════════════════════════════════
-            REASONS — Edit each reason block below.
-            Add as many as you want by copying a .love-item block.
-            PHOTO: Replace placeholder with <img src="photos/..." class="love-img"/>
-            ══════════════════════════════════════
+            ════════════════════════════════════════
+            HOW TO EDIT THESE CARDS:
+            • .card-front  → what shows BEFORE the flip (the number + teaser)
+            • .card-back   → what shows AFTER the flip (the real reason)
+            • Change the number, teaser text, reason title, and reason text
+            • To add more cards: copy an entire <div class="flip-card"> block
+            • PHOTO on back: replace <div class="photo-placeholder"> with
+                <img src="photos/yourphoto.jpg" class="love-img" alt="..."/>
+            ════════════════════════════════════════
           -->
-          <div class="love-item">
-            <div class="love-num">01</div>
-            <div class="love-content">
-              <div class="love-title">--REASON TITLE-- (e.g. "Teri hansne ki awaaz")</div>
-              <div class="love-text">--DETAIL-- (e.g. "Seriously, it's contagious. Anyone around you just starts smiling.")</div>
-              <div class="photo-placeholder love-photo"><span>Add Photo</span></div>
+
+          <div class="flip-card" onclick="flipCard(this)">
+            <div class="flip-inner">
+              <div class="card-front">
+                <div class="card-front-num">01</div>
+                <div class="card-front-hint">--TEASER-- (e.g. "Something about your laugh...")</div>
+                <div class="card-front-tap">Tap to reveal</div>
+              </div>
+              <div class="card-back">
+                <div class="card-back-num">01</div>
+                <div class="card-back-title">--REASON TITLE-- (e.g. "Teri hansne ki awaaz")</div>
+                <div class="card-back-text">--YOUR REASON-- (e.g. "Seriously, it's contagious. Anyone around you just starts smiling without even knowing why.")</div>
+                <div class="photo-placeholder love-card-photo"><span>Add Photo</span></div>
+              </div>
             </div>
           </div>
-          <div class="love-item">
-            <div class="love-num">02</div>
-            <div class="love-content">
-              <div class="love-title">--REASON TITLE--</div>
-              <div class="love-text">--DETAIL--</div>
-              <div class="photo-placeholder love-photo"><span>Add Photo</span></div>
+
+          <div class="flip-card" onclick="flipCard(this)">
+            <div class="flip-inner">
+              <div class="card-front">
+                <div class="card-front-num">02</div>
+                <div class="card-front-hint">--TEASER--</div>
+                <div class="card-front-tap">Tap to reveal</div>
+              </div>
+              <div class="card-back">
+                <div class="card-back-num">02</div>
+                <div class="card-back-title">--REASON TITLE--</div>
+                <div class="card-back-text">--YOUR REASON--</div>
+                <div class="photo-placeholder love-card-photo"><span>Add Photo</span></div>
+              </div>
             </div>
           </div>
-          <div class="love-item">
-            <div class="love-num">03</div>
-            <div class="love-content">
-              <div class="love-title">--REASON TITLE--</div>
-              <div class="love-text">--DETAIL--</div>
-              <div class="photo-placeholder love-photo"><span>Add Photo</span></div>
+
+          <div class="flip-card" onclick="flipCard(this)">
+            <div class="flip-inner">
+              <div class="card-front">
+                <div class="card-front-num">03</div>
+                <div class="card-front-hint">--TEASER--</div>
+                <div class="card-front-tap">Tap to reveal</div>
+              </div>
+              <div class="card-back">
+                <div class="card-back-num">03</div>
+                <div class="card-back-title">--REASON TITLE--</div>
+                <div class="card-back-text">--YOUR REASON--</div>
+                <div class="photo-placeholder love-card-photo"><span>Add Photo</span></div>
+              </div>
             </div>
           </div>
-          <div class="love-item">
-            <div class="love-num">04</div>
-            <div class="love-content">
-              <div class="love-title">--REASON TITLE--</div>
-              <div class="love-text">--DETAIL--</div>
-              <div class="photo-placeholder love-photo"><span>Add Photo</span></div>
+
+          <div class="flip-card" onclick="flipCard(this)">
+            <div class="flip-inner">
+              <div class="card-front">
+                <div class="card-front-num">04</div>
+                <div class="card-front-hint">--TEASER--</div>
+                <div class="card-front-tap">Tap to reveal</div>
+              </div>
+              <div class="card-back">
+                <div class="card-back-num">04</div>
+                <div class="card-back-title">--REASON TITLE--</div>
+                <div class="card-back-text">--YOUR REASON--</div>
+                <div class="photo-placeholder love-card-photo"><span>Add Photo</span></div>
+              </div>
             </div>
           </div>
-          <!-- Copy a love-item to add more reasons -->
+
+          <div class="flip-card" onclick="flipCard(this)">
+            <div class="flip-inner">
+              <div class="card-front">
+                <div class="card-front-num">05</div>
+                <div class="card-front-hint">--TEASER--</div>
+                <div class="card-front-tap">Tap to reveal</div>
+              </div>
+              <div class="card-back">
+                <div class="card-back-num">05</div>
+                <div class="card-back-title">--REASON TITLE--</div>
+                <div class="card-back-text">--YOUR REASON--</div>
+                <div class="photo-placeholder love-card-photo"><span>Add Photo</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card" onclick="flipCard(this)">
+            <div class="flip-inner">
+              <div class="card-front">
+                <div class="card-front-num">06</div>
+                <div class="card-front-hint">--TEASER--</div>
+                <div class="card-front-tap">Tap to reveal</div>
+              </div>
+              <div class="card-back">
+                <div class="card-back-num">06</div>
+                <div class="card-back-title">--REASON TITLE--</div>
+                <div class="card-back-text">--YOUR REASON--</div>
+                <div class="photo-placeholder love-card-photo"><span>Add Photo</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Copy a full flip-card block above to add more reasons -->
+
         </div>
+
+        <!-- Progress indicator -->
+        <div class="love-progress">
+          <span id="love-flipped">0</span> of <span id="love-total">6</span> revealed
+          <div class="love-progress-bar"><div class="love-progress-fill" id="love-fill"></div></div>
+        </div>
+
       </section>
 
       <!-- ── ENDING ── -->
