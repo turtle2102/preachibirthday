@@ -619,30 +619,37 @@ function initNoButton() {
 
 // Called on mouseover AND touchstart
 function runAway(btn) {
-  const margin = 40;
-  const btnW   = btn.offsetWidth;
-  const btnH   = btn.offsetHeight;
+  const card = document.querySelector(".proposal-card");
+  if (!card) return;
 
-  const maxX = window.innerWidth  - btnW - margin;
-  const maxY = window.innerHeight - btnH - margin;
-  const minX = margin;
-  const minY = margin;
+  const cardRect = card.getBoundingClientRect();
+  const btnW = btn.offsetWidth;
+  const btnH = btn.offsetHeight;
+  const margin = 12;
+
+  // Keep button strictly inside the card boundaries
+  const minX = cardRect.left + margin;
+  const minY = cardRect.top  + margin;
+  const maxX = cardRect.right  - btnW - margin;
+  const maxY = cardRect.bottom - btnH - margin;
 
   let newX = Math.random() * (maxX - minX) + minX;
   let newY = Math.random() * (maxY - minY) + minY;
 
+  // Avoid landing on the Yes button
   const yesBtn = document.querySelector(".btn-yes");
   if (yesBtn) {
     const yr = yesBtn.getBoundingClientRect();
     const tooClose =
-      newX < yr.right + 40 &&
-      newX + btnW > yr.left - 40 &&
-      newY < yr.bottom + 40 &&
-      newY + btnH > yr.top - 40;
+      newX < yr.right  + 20 &&
+      newX + btnW > yr.left  - 20 &&
+      newY < yr.bottom + 20 &&
+      newY + btnH > yr.top   - 20;
 
     if (tooClose) {
-      newX = newX > window.innerWidth / 2 ? newX - 160 : newX + 160;
-      newX = Math.max(minX, Math.min(maxX, newX));
+      newY = yr.bottom + 24;
+      if (newY + btnH > maxY) newY = yr.top - btnH - 24;
+      newY = Math.max(minY, Math.min(maxY, newY));
     }
   }
 
