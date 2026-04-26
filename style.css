@@ -1320,6 +1320,8 @@ img.memory-img, img.plan-img, img.love-img {
   cursor: pointer;
   /* Position absolute so it can teleport freely */
   position: fixed;
+  max-width: 160px;
+box-sizing: border-box;
   transition: background 0.2s;
   z-index: 9999;
   /* Starts in normal flow via JS — positioned after first mouseover */
