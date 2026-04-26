@@ -600,3 +600,93 @@ function updateLoveProgress() {
 
 /* Also expose flipCard globally so onclick= works */
 window.flipCard = flipCard;
+
+/* ═══════════════════════════════════════════
+   PROPOSAL PAGE — Running "No" Button
+   Paste this at the bottom of script.js
+═══════════════════════════════════════════ */
+
+// Position the No button initially when proposal page loads
+function initNoButton() {
+  const btn = document.getElementById("btn-no");
+  if (!btn) return;
+
+  // Place it at a sensible starting position
+  const rect = btn.getBoundingClientRect();
+  btn.style.left = rect.left + "px";
+  btn.style.top  = rect.top  + "px";
+}
+
+// Called on mouseover AND touchstart
+function runAway(btn) {
+  const margin = 20;
+  const btnW   = btn.offsetWidth;
+  const btnH   = btn.offsetHeight;
+
+  // Pick a random position anywhere on screen, avoiding edges
+  const maxX = window.innerWidth  - btnW - margin;
+  const maxY = window.innerHeight - btnH - margin;
+
+  let newX = Math.random() * maxX + margin;
+  let newY = Math.random() * maxY + margin;
+
+  // Make sure it doesn't land on top of the Yes button
+  const yesBtn = document.querySelector(".btn-yes");
+  if (yesBtn) {
+    const yr = yesBtn.getBoundingClientRect();
+    const tooClose =
+      newX < yr.right + 30 &&
+      newX + btnW > yr.left - 30 &&
+      newY < yr.bottom + 30 &&
+      newY + btnH > yr.top - 30;
+
+    if (tooClose) {
+      // Nudge it away
+      newX = newX > window.innerWidth / 2
+        ? newX - 180
+        : newX + 180;
+    }
+  }
+
+  btn.style.left = newX + "px";
+  btn.style.top  = newY + "px";
+
+  // Taunt messages — change/add/remove any you like!
+  const taunts = [
+    "Nahi! 😂",
+    "Pakad ke dekho!",
+    "Bilkul nahi!",
+    "Haha, nope!",
+    "Try karte raho...",
+    "Kabhi nahi!",
+    "LOL, no.",
+    "Sochte raho!",
+  ];
+  btn.textContent = taunts[Math.floor(Math.random() * taunts.length)];
+}
+
+function handleYes() {
+  // Hide the buttons area, show the yes message
+  document.querySelector(".proposal-buttons").style.display = "none";
+  document.getElementById("proposal-yes-msg").classList.remove("hidden");
+
+  // Hide the No button (it might be floating anywhere on screen)
+  const noBtn = document.getElementById("btn-no");
+  if (noBtn) noBtn.style.display = "none";
+}
+
+// Init button position when proposal section becomes active
+const proposalObserver = new MutationObserver(() => {
+  const sec = document.getElementById("sec-proposal");
+  if (sec && sec.classList.contains("active")) {
+    setTimeout(initNoButton, 100);
+  }
+});
+
+const proposalSec = document.getElementById("sec-proposal");
+if (proposalSec) {
+  proposalObserver.observe(proposalSec, { attributes: true });
+}
+
+window.runAway    = runAway;
+window.handleYes  = handleYes;
